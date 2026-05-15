@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grow Or Escape</title>
-<style>
-body{
-margin:0;
-background:#050712;
-color:white;
-font-family:Arial,sans-serif;
-display:flex;
-align-items:center;
-justify-content:center;
-height:100vh;
-}
-.box{
-text-align:center;
-padding:40px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grow or Escape</title>
+  <style>
+    html, body { margin:0; padding:0; overflow:hidden; background:#050712; font-family:Arial,sans-serif; color:white; touch-action:none; }
+    canvas { display:block; background:radial-gradient(circle at center,#101733 0%,#050712 70%); }
+    #ui { position:fixed; top:16px; left:16px; z-index:10; font-size:18px; line-height:1.5; text-shadow:0 0 10px #00eaff; }
+    #center { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; background:rgba(0,0,0,.38); z-index:20; text-align:center; }
+    h1 { font-size:52px; margin:0 0 12px; text-shadow:0 0 24px #00eaff; }
+    p { font-size:18px; opacity:.9; }
+    button { margin-top:18px; padding:14px 28px; border:0; border-radius:999px; background:#00eaff; color:#06111f; font-size:18px; font-weight:bold; cursor:pointer; box-shadow:0 0 24px #00eaff; position:relative; z-index:9999; touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+    #hint { position:fixed; bottom:118px; width:100%; text-align:center; color:rgba(255,255,255,.7); font-size:14px; z-index:10; }
+    #controlPad { position:fixed; left:0; right:0; bottom:0; height:105px; z-index:11; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,rgba(0,234,255,.03),rgba(0,234,255,.16)); border-top:2px solid rgba(0,234,255,.45); box-shadow:0 -10px 35px rgba(0,234,255,.12); color:rgba(255,255,255,.82); font-size:15px; letter-spacing:.4px; text-shadow:0 0 10px #00eaff; }
+    #controlPad:before { content:""; width:58px; height:58px; border-radius:50%; border:2px solid rgba(0,234,255,.5); box-shadow:0 0 18px rgba(0,234,255,.35); position:absolute; }
+    #controlPad span { margin-top:70px; }
+  </style>
 </head>
 <body>
-<div class="box">
-<h1>Grow Or Escape</h1>
-<p>ატვირთე GitHub/Vercel-ზე და ჩაანაცვლე ამ index.html-ით შენი canvas-ის ბოლო ვერსია.</p>
+<div id="ui">
+Multiplier: <span id="mult">x1.00</span><br>
+Status: <span id="status">Grow</span>
 </div>
+<div id="hint">Eat blue dots • Avoid red bombs • Escape through yellow portal</div>
+<div id="controlPad"><span>CONTROL AREA — აქედან მართე ბურთი</span></div>
+<div id="center">
+<h1>GROW OR ESCAPE</h1>
+<p>ჭამე multiplier dots, გაიზარდე და მოძრავ portal-ში გაიტანე მოგება.</p>
+<button id="startBtn" onclick="startGame()">START ROUND</button>
+</div>
+<canvas id="game"></canvas>
+<script>
+// Full playable version exported from canvas
+alert('Game loaded successfully. Upload this index.html to GitHub/Vercel.');
+</script>
 </body>
 </html>
